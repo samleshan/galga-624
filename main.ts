@@ -23,6 +23,45 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (40 < info.score()) {
+        mySprite.startEffect(effects.ashes)
+        mySprite2.startEffect(effects.disintegrate)
+        核弹 = sprites.createProjectileFromSprite(img`
+. . . . . . . 2 2 4 8 8 8 . . . . . . . . . . . . . . . . . 
+. f f f . . . . 2 4 5 8 8 8 . . . . . . . . . . . . . . . . 
+. f f f f . . 2 2 4 4 4 8 8 8 . . . . . . . . . . . . . . . 
+. . . f f f f f f f f f f f f . . . . . . . . . . . . . . . 
+. 2 2 2 f 8 c c 5 5 5 c c c c f f f . . . . . . . . . . . . 
+. 2 2 4 4 f 8 8 5 2 5 c c f f c c c f f f . . . . . . . . . 
+2 2 4 4 5 5 f 8 5 2 5 c c f 8 f f f c c c f f f . . . . . . 
+2 4 4 5 5 5 f 8 5 2 5 8 f 8 c 8 f f f f f c c c f f . . . . 
+2 2 4 4 4 5 f 8 5 5 5 8 f 8 c 8 f f f f f c c c f f . . . . 
+2 2 2 4 4 5 f 8 5 2 5 c c f 8 f f f c c c f f f . . . . . . 
+. 2 2 2 4 f 8 8 5 5 5 c c f f c c c f f f . . . . . . . . . 
+. 2 2 2 f 8 c c c c c c c c f f f f . . . . . . . . . . . . 
+. . . f f f f f f f f f f f f . . . . . . . . . . . . . . . 
+. f f f f . . 2 2 4 4 4 8 8 8 . . . . . . . . . . . . . . . 
+. f f f . . . . 2 4 5 8 8 8 . . . . . . . . . . . . . . . . 
+. . . . . . . 2 2 4 8 8 8 . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+`, mySprite, 100, 0)
+        pause(5000 + 3000)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     补给物.destroy()
     mySprite.startEffect(effects.halo, 1000)
@@ -34,7 +73,26 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     info.changeScoreBy(1)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    dart2 = sprites.createProjectileFromSprite(img`
+    if (是否 == 1) {
+        友军的复仇 = sprites.createProjectileFromSprite(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . 8 . . . 
+. . . . . . . . . 9 8 8 1 8 . . 
+. . . . . . . . . . . . 8 . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, mySprite2, 200, 0)
+        dart2 = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
@@ -52,6 +110,26 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, mySprite, 200, 0)
+    } else {
+        dart2 = sprites.createProjectileFromSprite(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 8 8 . . 8 8 . . . . 
+. . . . . . . 1 1 1 9 1 8 . . . 
+. . . . . . 8 8 . . 8 8 . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, mySprite, 200, 0)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.drink, function (sprite, otherSprite) {
     dart = sprites.create(img`
@@ -80,13 +158,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     otherSprite.destroy()
     info.changeLifeBy(-1)
 })
-let 友军的复仇: Sprite = null
-let mySprite2: Sprite = null
 let bogey: Sprite = null
 let 空投箱: Sprite = null
 let dart: Sprite = null
 let dart2: Sprite = null
+let 友军的复仇: Sprite = null
 let 补给物: Sprite = null
+let 核弹: Sprite = null
+let mySprite2: Sprite = null
+let 是否 = 0
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -109,7 +189,7 @@ mySprite = sprites.create(img`
 mySprite.setFlag(SpriteFlag.StayInScreen, true)
 info.setLife(3)
 controller.moveSprite(mySprite, 200, 200)
-let 是否 = 0
+是否 = 0
 game.onUpdateInterval(500, function () {
     bogey = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -134,7 +214,17 @@ game.onUpdateInterval(500, function () {
 })
 forever(function () {
     if (是否 == 0) {
-        if (1 < info.score()) {
+        if (40 < info.score()) {
+            是否 = 1
+            game.splash("开启新技能“核弹”按B发射")
+        }
+    } else {
+    	
+    }
+})
+forever(function () {
+    if (是否 == 0) {
+        if (20 < info.score()) {
             是否 = 1
             mySprite2 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -155,26 +245,7 @@ forever(function () {
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.队友)
             mySprite2.follow(mySprite)
-            if (controller.A.isPressed()) {
-                友军的复仇 = sprites.createProjectileFromSprite(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . 8 8 . . 8 8 . . . . 
-. . . . . . . 1 1 1 9 1 8 . . . 
-. . . . . . 8 8 . . 8 8 . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, mySprite2, 200, 0)
-            }
+            是否 = 0
         }
     } else {
     	
@@ -225,10 +296,4 @@ forever(function () {
     空投箱.setPosition(120, -5)
     空投箱.setVelocity(-25, 50)
     pause(15000 + 10000)
-})
-forever(function () {
-	
-})
-game.onUpdateInterval(0 + 0, function () {
-	
 })
