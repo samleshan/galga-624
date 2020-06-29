@@ -23,8 +23,7 @@
 
 此图像显示主分支中最后一次提交的块代码。
 此图像可能需要几分钟才能刷新。
-
-![块的渲染视图](https://github.com/samleshan/galga/raw/master/.makecode/blocks.png)
+s.png)
 
 ## Supported targets
 
